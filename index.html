@@ -20,20 +20,23 @@
 
   <main class="main-container">
     <section class="credit-card bg-image">
-      <div class="credit-card__front">
-        <img class="credit-card__logo" src="./images/card-logo.svg" alt="">
-        <p id="card_number_slot" class="credit-card__number"></p>
-        <div class="credit-card__holder">
-          <p id="card_holder_slot" class="credit-card__holder-name"></p>
-          <p class="credit-card__expire">
-            <span id="expire_month_slot"></span>/<span id="expire_year_slot"></span>
-          </p>
+      <div class="credit-card__container">
+        <div class="credit-card__front">
+          <img class="credit-card__logo" src="./images/card-logo.svg" alt="">
+          <p id="card_number_slot" class="credit-card__number"></p>
+          <div class="credit-card__holder">
+            <p id="card_holder_slot" class="credit-card__holder-name"></p>
+            <p class="credit-card__expire">
+              <span id="expire_month_slot"></span>/<span id="expire_year_slot"></span>
+            </p>
+          </div>
+        </div>
+  
+        <div class="credit-card__back">
+          <p id="cvc_slot" class="credit-card__ccv">000</p>
         </div>
       </div>
-
-      <div class="credit-card__back">
-        <p id="cvc_slot" class="credit-card__ccv">000</p>
-      </div>
+    
     </section>
 
     <section class="form__container">
@@ -42,17 +45,20 @@
           <label for="holder_name">Cardholder Name</label>
           <input id="holder_name" name="holder_name" class="" placeholder="e.g. Jane Appleseed" pattern="[A-Za-z ]*$"
             required autofocus />
-          <p id="holder_name_error" class="form__error">Invalid Input</p>
+          <p id="holder_name_error" class="form__error"></p>
 
         </fieldset>
 
         <fieldset class="form__group">
           <label for="card_number">Card Number</label>
-          <input id="card_number_mask" name="card_number" class="" placeholder="e.g. 1234 5678 9123 0000" maxlength="19"
-            required />
-          <input id="card_number_real" name="card_number" class="" placeholder="e.g. 1234 5678 9123 0000"
-            pattern="([0-9]{16})" maxlength="16" required />
-          <p id="card_number_error" class="form__error">Invalid Input</p>
+          
+          <fieldset class="card-number__container">
+            <input id="card_number_mask" name="card_number" class="" placeholder="e.g. 1234 5678 9123 0000" maxlength="19"
+            required /> 
+            <input id="card_number_real" name="card_number" class="" placeholder="e.g. 1234 5678 9123 0000"
+            pattern="([0-9]{16})" maxlength="16" required /> 
+          </fieldset>
+          <p id="card_number_error" class="form__error"></p>
         </fieldset>
 
         <div class="form__group--horizontal">
@@ -64,7 +70,7 @@
               <input id="expire_year" class="form__input--select" id="exp_year" name="exp_date" class=""
                 placeholder="YY" pattern="([0-9]{2})" maxlength="2" required />
             </div>
-            <p id="exp_date_error" class="form__error">Invalid Input</p>
+            <p id="exp_date_error" class="form__error"></p>
           </fieldset>
 
           <hr class="form__gutter" />
@@ -72,8 +78,8 @@
           <fieldset class="form__group form__group--half">
             <label for="security_number">CVC</label>
             <input id="security_number" name="security_number" placeholder="e.g. 123" pattern="([0-9]{3})" class=""
-              maxlength="3" required />
-            <p id="security_number_error" class="form__error">Invalid Input</p>
+              maxlength="3" required /> 
+            <p id="security_number_error" class="form__error"></p>
           </fieldset>
         </div>
 
@@ -98,7 +104,7 @@
   
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://github.com/Unal-Inanli" target="_blank">Unal Inanli</a>.
   </footer>
 </body>
 
