@@ -1,51 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Interactive card details form</title>
+  <script src="./index.js" defer> </script>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+  <main class="main-container">
+    <section class="credit-card bg-image">
+      <div class="credit-card__front">
+        <img class="credit-card__logo" src="./images/card-logo.svg" alt="">
+        <p id="card_number_slot" class="credit-card__number"></p>
+        <div class="credit-card__holder">
+          <p id="card_holder_slot" class="credit-card__holder-name"></p>
+          <p class="credit-card__expire">
+            <span id="expire_month_slot"></span>/<span id="expire_year_slot"></span>
+          </p>
+        </div>
+      </div>
 
-  000
+      <div class="credit-card__back">
+        <p id="cvc_slot" class="credit-card__ccv">000</p>
+      </div>
+    </section>
 
-  Cardholder Name
-  e.g. Jane Appleseed
+    <section class="form__container">
+      <form id="card_form" class="form">
+        <fieldset class="form__group">
+          <label for="holder_name">Cardholder Name</label>
+          <input id="holder_name" name="holder_name" class="" placeholder="e.g. Jane Appleseed" pattern="[A-Za-z ]*$"
+            required autofocus />
+          <p id="holder_name_error" class="form__error">Invalid Input</p>
 
-  Card Number
-  e.g. 1234 5678 9123 0000
+        </fieldset>
 
-  Exp. Date (MM/YY)
-  MM
-  YY
+        <fieldset class="form__group">
+          <label for="card_number">Card Number</label>
+          <input id="card_number_mask" name="card_number" class="" placeholder="e.g. 1234 5678 9123 0000" maxlength="19"
+            required />
+          <input id="card_number_real" name="card_number" class="" placeholder="e.g. 1234 5678 9123 0000"
+            pattern="([0-9]{16})" maxlength="16" required />
+          <p id="card_number_error" class="form__error">Invalid Input</p>
+        </fieldset>
 
-  CVC
-  e.g. 123
+        <div class="form__group--horizontal">
+          <fieldset class="form__group form__group--half">
+            <label for="exp_date">Exp. Date (MM/YY)</label>
+            <div class="form__input-group--horizontal">
+              <input id="expire_month" class="form__input--select" id="exp_month" name="exp_date" class=""
+                placeholder="MM" pattern="([0-9]{2})" maxlength="2" required />
+              <input id="expire_year" class="form__input--select" id="exp_year" name="exp_date" class=""
+                placeholder="YY" pattern="([0-9]{2})" maxlength="2" required />
+            </div>
+            <p id="exp_date_error" class="form__error">Invalid Input</p>
+          </fieldset>
 
-  Confirm
+          <hr class="form__gutter" />
 
-  <!-- Completed state start -->
+          <fieldset class="form__group form__group--half">
+            <label for="security_number">CVC</label>
+            <input id="security_number" name="security_number" placeholder="e.g. 123" pattern="([0-9]{3})" class=""
+              maxlength="3" required />
+            <p id="security_number_error" class="form__error">Invalid Input</p>
+          </fieldset>
+        </div>
 
-  Thank you!
-  We've added your card details
-  Continue
+        <button class="form__submit">Confirm</button>
+      </form>
+
+        <section id="form_success" class="form__success">
+          <img class="form__success__logo" src="./images/icon-complete.svg" alt="">
+          <p class="form__success__message">
+            Thank you!
+          </p>
+          <p class="form__success__status">
+            We've added your card details
+          </p>
+          <button id="form_continue_button" class="form__continue">Continue</button>
+        </section>
+    </section>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+
+  </main>
+
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </footer>
 </body>
+
 </html>
